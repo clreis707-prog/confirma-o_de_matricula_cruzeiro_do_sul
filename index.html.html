@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmação de Matrícula</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+}
+
+/* HEADER */
+header {
+    background-color: #ffffff;
+    color: #002e6d;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    height: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.tab-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #ffffff;
+}
+
+.tab-button.active-tab {
+    background-color: #ffffff;
+}
+
+/* CONTEÚDO */
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    color: black;
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* VALIDAÇÃO */
+.validacao {
+    font-size: 16px;
+    font-weight: bold;
+    color: #002e6d;
+    text-align: center;
+}
+
+/* CONTAINER ALUNO */
+.aluno-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* INFORMAÇÕES */
+.info {
+    line-height: 1.8;
+    font-size: 18px;
+    flex: 1;
+}
+
+/* FOTO */
+.foto {
+    width: 120px;
+    height: 150px;
+    border: 2px solid #ccc;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #002e6d;
+    color: white;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+    .aluno-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info {
+        font-size: 16px;
+    }
+
+    .foto {
+        margin-top: 15px;
+    }
+
+    .card {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .tab-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+}
+</style>
+
+<script>
+function openTab(tabName, element) {
+    var i;
+    var x = document.getElementsByClassName("tab-content");
+    var buttons = document.getElementsByClassName("tab-button");
+
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active-tab");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    element.classList.add("active-tab");
+}
+
+window.onload = function() {
+    document.getElementById("aluno1").style.display = "block";
+    document.getElementsByClassName("tab-button")[0].classList.add("active-tab");
+}
+</script>
+
+</head>
+<body>
+
+<header>
+    <img src="img/cruzeiro.png" alt="Logo">
+    <h1>Confirmação de Matrícula</h1>
+</header>
+
+<div class="tabs">
+    <button class="tab-button" onclick="openTab('aluno1', this)">.</button>
+    <button class="tab-button" onclick="openTab('aluno2', this)">.</button>
+</div>
+
+<!-- ALUNO 1 -->
+<div id="aluno1" class="tab-content">
+
+    <div class="card validacao">
+        Código de Validação: 130C866Q302U
+    </div>
+
+    <div class="card">
+        <div class="aluno-container">
+            <div class="info">
+                <strong>Nome:</strong> Cristiano Luiz Reis Pereira<br>
+                <strong>CPF:</strong> 021.589.566-58<br>
+                <strong>Curso:</strong> Ciências da Computação - Bacharelado<br>
+                <strong>Validade:</strong> 31 de dezembro de 2026<br>
+                <strong>Registro Acadêmico:</strong> 02597914-1
+            </div>
+
+            <div class="foto">
+                <img src="img/cris.jpeg" alt="foto">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ALUNO 2 -->
+<div id="aluno2" class="tab-content">
+
+    <div class="card validacao">
+        Código de Validação: 265A158Y200R
+    </div>
+
+    <div class="card">
+        <div class="aluno-container">
+            <div class="info">
+                <strong>Nome:</strong> Sirlan Cesar Franco<br>
+                <strong>CPF:</strong> 857.512.866-34<br>
+                <strong>Curso:</strong> História - Bacharelado<br>
+                <strong>Validade:</strong> 31 de dezembro de 2027<br>
+                <strong>Registro Acadêmico:</strong> 05584763-3
+            </div>
+
+            <div class="foto">
+                <img src="img/sir.jpeg" alt="foto">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Universidade Cruzeiro do Sul
+</footer>
+
+</body>
+</html>
